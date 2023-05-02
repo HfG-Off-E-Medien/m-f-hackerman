@@ -1,18 +1,28 @@
 # echo-server.py
 
 import socket
+from tcp_funcs import *
+from pipeline import pipeline
 
-HOST =  # Standard loopback interface address (localhost)
-PORT =  # Port to listen on (non-privileged ports are > 1023)
+HOST = 
+PORT = 
+BUFFER_SIZE = 1024
+
+print("Setting up tensorflow pipeline...")
+P = Pipeline()
+P.warump()
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
     s.listen()
-    conn, addr = s.accept()
-    with conn:
+
+    while True:
+        print('Server listening...')
+            
+        conn, addr = s.accept()
         print(f"Connected by {addr}")
-        while True:
-            data = conn.recv(1024)
-            if not data:
-                break
-            conn.sendall(data)
+        with conn:
+            _ = receive_file(conn, BUFFER_SIZE, 'empfangen.jpg')
+            print("processing image...")
+            P.run('empfangen.jpg', "processed.jpg")
+            send_file(conn, BUFFER_SIZE, 'processed.jpg')
