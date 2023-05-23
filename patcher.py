@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+from tqdm import tqdm
 
 class Patcher():
     def __init__(self,
@@ -9,7 +10,7 @@ class Patcher():
         self.output_dir = output_dir
         self.overlap = overlap
 
-    def split_image_into_patches(self, output_dir, img):
+    def split_image_into_patches(self, img):
         def compute_vals(sidelen, overlap, ps):
             adjusted_ps = ps - overlap
             n_add_patches = (sidelen - ps) // adjusted_ps
@@ -50,7 +51,9 @@ class Patcher():
         x_vals, y_vals = compute_vals(len_x, self.overlap, ps), compute_vals(len_y, self.overlap, ps)
 
         i=0
-        for x in range(len(x_vals) - 1):
+        filepaths = []
+        pbar = tqdm(range(len(x_vals) - 1), desc="Splitting into patches...")
+        for x in pbar:
             x_start = x_vals[x]
             x_end   = x_vals[x+1] + self.overlap
             x_start_patch = np.clip(x_start, None, len_x - ps)
@@ -63,6 +66,8 @@ class Patcher():
 
                 # obtain patch and save
                 patch = img[x_start_patch : x_end_patch, y_start_patch : y_end_patch]
-                cv2.imwrite(output_dir+str(i)+'.jpg', patch)
+                filepath = self.output_dir+str(i)+'.jpg'
+                cv2.imwrite(filepath, patch)
+                filepaths.append(filepath)
                 i += 1
-        #return i
+        return filepaths
