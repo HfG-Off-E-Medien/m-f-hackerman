@@ -15,11 +15,11 @@ from subprocess import Popen
 # ----------------------------------------------------------------------------- #
 # Args
 
-HOST = "172.20.10.11"#input("type in server ip")#"172.20.10.11"
-PORT = 4455
+HOST = input("type in server ip")#"172.20.10.11"
+PORT = 
 BUFFER_SIZE = 1
-CACHE_IMG_PATH = '/home/pi/Desktop/moritz_filter/cache/tmp.jpg'
-CACHE_PATCHES_PATH = '/home/pi/Desktop/moritz_filter/cache/patches/'
+CACHE_IMG_PATH = '/home/pi/Desktop/.../cache/tmp.jpg'
+CACHE_PATCHES_PATH = '/home/pi/Desktop/.../cache/patches/'
 
 # Hide the mouse
 Popen(['unclutter', '-idle', '0.01', '-root'])
