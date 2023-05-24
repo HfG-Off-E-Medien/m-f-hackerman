@@ -15,9 +15,9 @@ from subprocess import Popen
 # ----------------------------------------------------------------------------- #
 # Args
 
-HOST = input("type in server ip")#"172.20.10.11"
+HOST = input("type in server ip")
 PORT = 
-BUFFER_SIZE = 1
+BUFFER_SIZE = 1024
 CACHE_IMG_PATH = '/home/pi/Desktop/.../cache/tmp.jpg'
 CACHE_PATCHES_PATH = '/home/pi/Desktop/.../cache/patches/'
 
@@ -26,7 +26,6 @@ Popen(['unclutter', '-idle', '0.01', '-root'])
 
 # ----------------------------------------------------------------------------- #
 # Modules
-
 P = Patcher(output_dir = CACHE_PATCHES_PATH)
 
 # ----------------------------------------------------------------------------- #
