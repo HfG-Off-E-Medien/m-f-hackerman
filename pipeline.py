@@ -139,7 +139,7 @@ class Pipeline():
         print('Chopping image...')
         num_patches = before_stitched(img, self.overlap)
         print('Applying AI filter to image chops...')
-        call(["python", "/home/ki-lab-02/Desktop/Studentische-Projekte/Moritz/SERVER/CUT/test.py", "--dataroot", "/home/ki-lab-02/Desktop/Studentische-Projekte/Moritz/SERVER/CUT/datasets/test", "--name", "test", "--CUT_mode", "CUT", "--phase", "test"])
+        call(["python", ".../SERVER/CUT/test.py", "--dataroot", ".../SERVER/CUT/datasets/test", "--name", "test", "--CUT_mode", "CUT", "--phase", "test"])
         #exec("python ./CUT/test.py --dataroot ./datasets/test --name test --CUT_mode CUT --phase test")
         print('Stitching chops back together...')
         render_stitched(img, self.overlap, out_path)
