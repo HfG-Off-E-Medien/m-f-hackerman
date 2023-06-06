@@ -30,8 +30,8 @@ CACHE_IMG_PATH = '/home/pi/Desktop/moritz_filter/cache/tmp.jpg'
 CACHE_PATCHES_PATH = '/home/pi/Desktop/moritz_filter/cache/patches/'
 
 # Buttons
-button1 = Factory.getButton("GPIO-HIGH", 5)
-button2 = Factory.getButton("GPIO-HIGH", 6)
+button1 = Factory.getButton("GPIO-HIGH", 20)
+button2 = Factory.getButton("GPIO-HIGH", 21)
 
 # Hide the mouse
 Popen(['unclutter', '-idle', '0.01', '-root'])
