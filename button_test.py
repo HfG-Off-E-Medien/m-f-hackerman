@@ -4,8 +4,8 @@ from grove.factory import Factory
 from grove.grove_led import GroveLed
 
 # Buttons
-button1 = Factory.getButton("GPIO-HIGH", 5)
-button2 = Factory.getButton("GPIO-HIGH", 6)
+button1 = Factory.getButton("GPIO-HIGH", 20)
+button2 = Factory.getButton("GPIO-HIGH", 21)
 
 while True:
     cv2.waitKey(1)
