@@ -16,7 +16,7 @@ from time import sleep
 # ----------------------------------------------------------------------------- #
 # Args
 
-HOST = "172.20.10.12"
+HOST = ""
 PORT = 4454
 BUFFER_SIZE = 1024
 CACHE_IMG_PATH = '/home/pi/Desktop/moritz_filter/cache/tmp.jpg'
